@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Contact Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+      font-family: 'Merriweather', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      margin: 3rem auto 5rem auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .card {
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #d4af37;
+      margin-bottom: 2rem;
+    }
+    .profile-card {
+      background: #1e293b;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-5px);
+    }
+    .profile-image {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: grayscale(100%) contrast(1.1);
+      object-fit: contain;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    }
+    .profile-info {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 2rem;
+      color: white;
+      text-shadow: 0 0 8px rgba(0,0,0,0.9);
+    }
+    .profile-info h1 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .profile-info .subtitle {
+      font-weight: 400;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .contact-header, .consultation-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.75rem;
+    }
+    .contact-header .material-icons, .consultation-header .material-icons {
+      font-size: 1.8rem;
+      color: #1f2937;
+    }
+    .contact-header h2, .consultation-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    .contact-info p, .consultation-info p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .contact-info .label, .consultation-info .label {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #1f2937;
+    }
+    .btn-direction, .btn-consultation {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #1e293b;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      margin-top: 0.75rem;
+      border: 1px solid #d4af37;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-direction:hover, .btn-consultation:hover {
+      background-color: #d4af37;
+      color: #1e293b;
+    }
+    .btn-direction .material-icons, .btn-consultation .material-icons {
+      font-size: 1.1rem;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    .footer {
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.875rem;
+      margin-top: 2rem;
+    }
+    .footer a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 639px) {
+      .container {
+        max-width: 365px;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .profile-card {
+        max-width: 360px;
+      }
+      .card {
+        max-width: 360px;
+        padding: 1.5rem;
+      }
+      .profile-image {
+        height: 330px;
+      }
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .profile-info h1 {
+        font-size: 1.5rem;
+      }
+      .profile-info .subtitle {
+        font-size: 0.875rem;
+      }
+      .contact-header h2, .consultation-header h2 {
+        font-size: 1.125rem;
+      }
+      .contact-info p, .consultation-info p {
+        font-size: 0.875rem;
+      }
+      .btn-direction, .btn-consultation {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 450px;
+      }
+      .profile-card, .card {
+        max-width: 450px;
+      }
+      .profile-image {
+        height: 450px;
+      }
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="profile-card">
+      <div class="profile-image">
+        <img src="pankaj.png" alt="Black and white professional portrait of Pankaj K. Soni" />
+        <div class="image-overlay"></div>
+        <div class="profile-info">
+          <h1>Pankaj K. Soni</h1>
+          <div class="subtitle">Advocate, Gujarat High Court (1997-present)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="contact-header">
+        <span class="material-icons">phone</span>
+        <h2>Contact Information</h2>
+      </div>
+      <div class="contact-info">
+        <p id="contact-phone"><span class="label">Call Us: </span> <a href="tel:+919274514892" class="text-blue-600 hover:underline">+91 9274514892</a></p>
+        <p id="contact-email"><span class="label">Email: </span> <a href="mailto:p.k.soni.advocate@gmail.com" class="text-blue-600 hover:underline">p.k.soni.advocate@gmail.com</a></p>
+        <p>
+          <span class="label">Office Address: </span>
+          301, Shivam Complex, Near Swastik Cross Roads, Navrangpura, Ahmedabad, Gujarat, 380009
+        </p>
+        <button class="btn-direction" onclick="openGoogleMaps('301, Shivam Complex, Near Swastik Cross Roads, Navrangpura, Ahmedabad, Gujarat, 380009')">
+          <span class="material-icons">location_on</span> Directions
+        </button>
+        <p class="mt-4">
+          <span class="label">High Court: </span>
+          Chamber No. 447, Advocate Building, Gujarat High Court, Sola, Ahmedabad, Gujarat, 380060
+        </p>
+        <button class="btn-direction" onclick="openGoogleMaps('Chamber No. 447, Advocate Building, Gujarat High Court, Sola, Ahmedabad, Gujarat, 380060')">
+          <span class="material-icons">location_on</span> Directions
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="consultation-header">
+        <span class="material-icons">chat</span>
+        <h2>Book a Consultation</h2>
+      </div>
+      <div class="consultation-info">
+        <p class="mb-4">Schedule a consultation for personalized legal advice with Pankaj K. Soni.</p>
+        <div class="mt-4">
+          <button class="btn-consultation" onclick="window.open('https://wa.me/919274514892?text=Hello%20Pankaj%20K.%20Soni,%20I%20would%20like%20to%20schedule%20a%20consultation.', '_blank')">
+            <span class="material-icons">event</span> Book an appointment
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Powered by <a href="https://devauradigital.com" target="_blank">DevAura Digital</a>
+    </footer>
+  </main>
+  <script>
+    function openGoogleMaps(address) {
+      const query = encodeURIComponent(address);
+      window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
+    }
+  </script>
+</body>
+</html>
